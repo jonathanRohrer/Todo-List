@@ -84,4 +84,17 @@ const deleteTask = () => {
         });
     });
 };
+const darkModeSwitch = document.querySelector("#darkModeSwitch");
+const body = document.querySelector("body");
+const root = document.querySelector("html");
+const title = document.querySelector(".title");
+const darkModeDiv = document.querySelector("#darkModeDiv");
+darkModeSwitch.addEventListener("click", () => {
+    root.classList.toggle("lightMode");
+    body.classList.toggle("lightMode");
+    taskInput.classList.toggle("lightMode");
+    ul.classList.toggle("lightMode");
+    title.classList.toggle("lightMode");
+    darkModeDiv.classList.toggle("lightMode");
+});
 //# sourceMappingURL=app.js.map
