@@ -87,14 +87,33 @@ const deleteTask = () => {
 const darkModeSwitch = document.querySelector("#darkModeSwitch");
 const body = document.querySelector("body");
 const root = document.querySelector("html");
-const title = document.querySelector(".title");
+const todoTitle = document.querySelector("#todoTitle");
+const card = document.querySelector(".card");
 const darkModeDiv = document.querySelector("#darkModeDiv");
 darkModeSwitch.addEventListener("click", () => {
     root.classList.toggle("lightMode");
     body.classList.toggle("lightMode");
     taskInput.classList.toggle("lightMode");
     ul.classList.toggle("lightMode");
-    title.classList.toggle("lightMode");
+    todoTitle.classList.toggle("lightMode");
+    card.classList.toggle("lightMode");
     darkModeDiv.classList.toggle("lightMode");
+});
+const quoteText = document.querySelector("#quoteText");
+const quoteAuthor = document.querySelector("#quoteAuthor");
+fetch("https://type.fit/api/quotes")
+    .then(function (response) {
+    return response.json();
+})
+    .then(function (data) {
+    let index = Math.floor(Math.random() * 1644);
+    quoteText.innerHTML = data[index].text;
+    quoteAuthor.innerHTML = data[index].author;
+    console.log(data);
+    setInterval(() => {
+        index = Math.floor(Math.random() * 1644);
+        quoteText.innerHTML = data[index].text;
+        quoteAuthor.innerHTML = data[index].author;
+    }, 10000);
 });
 //# sourceMappingURL=app.js.map

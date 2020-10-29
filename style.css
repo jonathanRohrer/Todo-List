@@ -78,11 +78,29 @@ li input:focus {
   color: var(--color-dark);
   display: flex;
   justify-content: flex-end;
-  -ms-ime-align: center;
+  margin-right: 1em;
 }
 
 #darkModeDiv h3 {
   margin-right: 0.5em;
+}
+
+.card {
+  background-color: var(--background-color-dark);
+  color: var(--color-dark);
+  text-align: center;
+}
+
+.card .title {
+  font-size: 1em;
+  font-weight: 400;
+  background-color: inherit;
+  color: inherit;
+}
+
+.card .subtitle {
+  color: #666;
+  font-size: 0.75em;
 }
 
 .lightMode {

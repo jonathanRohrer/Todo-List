@@ -102,7 +102,8 @@ const deleteTask = () => {
 const darkModeSwitch = document.querySelector("#darkModeSwitch") as HTMLInputElement;
 const body = document.querySelector("body") as HTMLBodyElement;
 const root = document.querySelector("html") as HTMLElement;
-const title = document.querySelector(".title") as HTMLElement;
+const todoTitle = document.querySelector("#todoTitle") as HTMLElement;
+const card = document.querySelector(".card") as HTMLDivElement;
 const darkModeDiv = document.querySelector("#darkModeDiv") as HTMLDivElement;
 
 darkModeSwitch.addEventListener("click", () => {
@@ -110,6 +111,26 @@ darkModeSwitch.addEventListener("click", () => {
   body.classList.toggle("lightMode");
   taskInput.classList.toggle("lightMode");
   ul.classList.toggle("lightMode");
-  title.classList.toggle("lightMode");
+  todoTitle.classList.toggle("lightMode");
+  card.classList.toggle("lightMode");
   darkModeDiv.classList.toggle("lightMode");
 });
+
+const quoteText = document.querySelector("#quoteText") as HTMLParagraphElement;
+const quoteAuthor = document.querySelector("#quoteAuthor") as HTMLParagraphElement;
+
+fetch("https://type.fit/api/quotes")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    let index = Math.floor(Math.random() * 1644);
+    quoteText.innerHTML = data[index].text;
+    quoteAuthor.innerHTML = data[index].author;
+    console.log(data);
+    setInterval(() => {
+      index = Math.floor(Math.random() * 1644);
+      quoteText.innerHTML = data[index].text;
+      quoteAuthor.innerHTML = data[index].author;
+    }, 10000);
+  });
