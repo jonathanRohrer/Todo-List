@@ -21,17 +21,6 @@ taskInput.addEventListener("keydown", (e) => {
         }
     }
 });
-// // show/hide editIcons on hover
-// ul.addEventListener("mouseover", (e) => {
-//   const target = e.target as HTMLLIElement;
-//   const taskMenu = target.querySelector(".taskMenu")!;
-//   taskMenu.classList.remove("is-hidden");
-// });
-// ul.addEventListener("mouseout", (e) => {
-//   const target = e.target as HTMLLIElement;
-//   const taskMenu = target.querySelector(".taskMenu")!;
-//   taskMenu.classList.add("is-hidden");
-// });
 const createNewTask = () => {
     // display task
     const taskName = taskInput.value.slice(); //store task name
@@ -109,7 +98,6 @@ fetch("https://type.fit/api/quotes")
     let index = Math.floor(Math.random() * 1644);
     quoteText.innerHTML = data[index].text;
     quoteAuthor.innerHTML = data[index].author;
-    console.log(data);
     setInterval(() => {
         index = Math.floor(Math.random() * 1644);
         quoteText.innerHTML = data[index].text;
